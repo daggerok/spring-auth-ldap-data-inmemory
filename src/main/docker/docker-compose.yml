@@ -1,0 +1,8 @@
+# all ldap docker stuff I got from here: ttps://github.com/kwk/docker-registry-setup
+ldap:
+  container_name: ldap-server
+  build: ./ldap
+  ports:
+    - "389:389"
+  expose:
+    - "389"

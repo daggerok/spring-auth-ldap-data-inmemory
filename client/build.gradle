@@ -1,0 +1,13 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
+project(':client') {
+  task client(type: Exec) {
+
+    def isWindows = Os.isFamily(Os.FAMILY_WINDOWS)
+    def npmDir = "${project.rootProject.projectDir}/client/npm"
+    def script = "$npmDir/build.${isWindows ? 'bat' : 'bash'}"
+
+    workingDir "${project.rootProject.projectDir}/client"
+    commandLine isWindows ? ['cmd', '/c', script] : ['bash', '-x', script]
+  }
+}

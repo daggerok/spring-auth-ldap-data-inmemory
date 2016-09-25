@@ -1,0 +1,15 @@
+---
+spring:
+  profiles: default
+app.ldap:
+  ip: 0.0.0.0
+  port: 389
+  base-dn: dc=example,dc=com
+  url: ldap://${app.ldap.ip}:${app.ldap.port}/${app.ldap.base-dn}
+  referral: follow
+  user-name: admin@example.com
+  password: password
+  user-filter: (objectClass=user)
+  group-filter: ou=Example
+  inactive-time-minutes: 600
+  max-sessions-enabled: 1000

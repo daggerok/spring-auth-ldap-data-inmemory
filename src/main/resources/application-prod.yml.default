@@ -1,0 +1,15 @@
+---
+spring:
+  profiles: prod
+app.ldap:
+  ip: 0.0.0.0
+  port: 389
+  base-dn: dc=daggerok,dc=com
+  url: ldap://${app.ldap.ip}:${app.ldap.port}/${app.ldap.base-dn}
+  referral: follow
+  user-name: admin@daggerok.com
+  password: rootPassword
+  user-filter: (&(objectClass=user)(sAMAccountName={0}))
+  group-filter: ou=Daggerok
+  inactive-time-minutes: 600
+  max-sessions-enabled: 1000

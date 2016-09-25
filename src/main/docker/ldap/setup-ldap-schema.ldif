@@ -1,0 +1,75 @@
+##  # The Organization
+##  dn: dc=daggerok,dc=com
+##  objectClass: dcObject
+##  objectClass: organization
+##  o: daggerok dc: daggerok
+
+# The organizational unit users
+dn: ou=users,dc=daggerok,dc=com
+objectClass: organizationalUnit
+ou: users
+
+# The organizational unit admins
+dn: ou=admins,dc=daggerok,dc=com
+objectClass: organizationalUnit
+ou: admins
+
+# User account User 1
+dn: uid=user1,ou=users,dc=daggerok,dc=com
+cn: User 1
+givenName: User1
+sn: user1
+uid: user1
+uidNumber: 10001
+gidNumber: 10001
+homeDirectory: /home/user1
+mail: user1@daggerok.com
+objectClass: top
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: user
+loginShell: /bin/bash
+userPassword: {CRYPT}*
+
+# User account User 2
+dn: uid=user2,ou=users,dc=daggerok,dc=com
+cn: User 2
+givenName: User2
+sn: user2
+uid: user2
+uidNumber: 10002
+gidNumber: 10002
+homeDirectory: /home/user2
+mail: user2@daggerok.com
+objectClass: top
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: user
+loginShell: /bin/bash
+userPassword: {CRYPT}*
+
+# Admin account Super User
+dn: uid=superuser,ou=admins,dc=daggerok,dc=com
+cn: Super User
+givenName: SuperUser
+sn: superuser
+uid: superuser
+uidNumber: 10003
+gidNumber: 10003
+homeDirectory: /home/superuser
+mail: superuser@daggerok.com
+objectClass: top
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: inetOrgPerson
+objectClass: organizationalPerson
+objectClass: person
+objectClass: user
+loginShell: /bin/bash
+userPassword: {CRYPT}*

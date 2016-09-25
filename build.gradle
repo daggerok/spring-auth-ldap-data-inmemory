@@ -1,0 +1,38 @@
+buildscript {
+  repositories { mavenCentral() }
+  dependencies { classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.4.1.RELEASE' }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+
+jar {
+  baseName = 'server'
+  version = '0.0.1'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories { mavenCentral() }
+
+dependencies {
+  compile('org.springframework.boot:spring-boot-starter-actuator')
+  compile('org.springframework.boot:spring-boot-starter-data-mongodb')
+  compile('de.flapdoodle.embed:de.flapdoodle.embed.mongo:1+')
+  compile('org.springframework.boot:spring-boot-starter-data-rest')
+  compile("org.apache.directory.server:apacheds-server-jndi:1.5.5")
+  compile("org.springframework.security:spring-security-ldap")
+  compile('org.springframework.boot:spring-boot-devtools')
+  compile('org.projectlombok:lombok')
+  compile('org.springframework.boot:spring-boot-starter-mustache')
+  compile('org.springframework.boot:spring-boot-starter-security')
+  compile('org.webjars:bootstrap:3+')
+  compile('org.webjars:webjars-locator:0+')
+  testCompile('org.springframework.boot:spring-boot-starter-test')
+  testCompile("org.springframework.security:spring-security-test")
+}
+
+build.dependsOn ':client:client'
+build.shouldRunAfter ':client:client'
